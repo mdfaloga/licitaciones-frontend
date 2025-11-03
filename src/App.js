@@ -3,6 +3,10 @@ import './App.css';
 
 function App() {
   return (
+    <div>
+      <h1>Bienvenido a Licitaciones Colombia</h1>
+      <p>Explora convocatorias públicas filtradas por tus criterios.</p>
+    </div>
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
