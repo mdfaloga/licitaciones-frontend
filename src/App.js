@@ -1,11 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import LoginForm from './components/LoginForm';
+import SearchPanel from './components/SearchPanel';
 
 function App() {
+  const [jwt, setJwt] = useState(null);
+
+  const handleLoginSuccess = (token) => {
+    setJwt(token);
+  };
+
   return (
     <div>
-      <h1>Bienvenido a Licitaciones Colombia</h1>
-      <p>Explora convocatorias públicas filtradas por tus criterios.</p>
+      {!jwt ? (
+        <LoginForm onLoginSuccess={handleLoginSuccess} />
+      ) : (
+        <>
+          <h1>Buscador de Licitaciones</h1>
+          <SearchPanel jwt={jwt} />
+        </>
+      )}
     </div>
   );
 }
